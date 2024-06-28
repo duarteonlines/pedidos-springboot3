@@ -3,6 +3,7 @@ package com.pedro.pedidos.config;
 import java.time.Instant;
 import java.util.Arrays;
 
+import org.apache.tomcat.util.openssl.openssl_h;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -10,10 +11,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.pedro.pedidos.entities.Category;
 import com.pedro.pedidos.entities.Order;
+import com.pedro.pedidos.entities.OrderItem;
 import com.pedro.pedidos.entities.Product;
 import com.pedro.pedidos.entities.User;
 import com.pedro.pedidos.entities.enums.OrderStatus;
 import com.pedro.pedidos.repositories.CategoryRepository;
+import com.pedro.pedidos.repositories.OrderItemRepository;
 import com.pedro.pedidos.repositories.OrderRepository;
 import com.pedro.pedidos.repositories.ProductRepository;
 import com.pedro.pedidos.repositories.UserRepository;
@@ -33,6 +36,9 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -65,8 +71,15 @@ public class TestConfig implements CommandLineRunner {
         Order o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), OrderStatus.WAITING_PAYMENT, u2);
         Order o3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), OrderStatus.WAITING_PAYMENT, u1);
 
+        OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+        OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+        OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+        OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+
         userRepository.saveAll(Arrays.asList(u1, u2));
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+
+        orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 
     }
 }
