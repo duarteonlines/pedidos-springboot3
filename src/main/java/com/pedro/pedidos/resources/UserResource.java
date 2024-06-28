@@ -1,4 +1,4 @@
-package com.pedro.vendas.resources;
+package com.pedro.pedidos.resources;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pedro.vendas.entities.User;
-import com.pedro.vendas.services.UserService;
+import com.pedro.pedidos.entities.User;
+import com.pedro.pedidos.services.UserService;
 
 @RestController
 @RequestMapping(value = "/users")

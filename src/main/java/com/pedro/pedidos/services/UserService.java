@@ -1,4 +1,4 @@
-package com.pedro.vendas.services;
+package com.pedro.pedidos.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pedro.vendas.entities.User;
-import com.pedro.vendas.repositories.UserRepository;
+import com.pedro.pedidos.entities.User;
+import com.pedro.pedidos.repositories.UserRepository;
 
 @Service
 public class UserService {

@@ -1,4 +1,4 @@
-package com.pedro.vendas.config;
+package com.pedro.pedidos.config;
 
 import java.util.Arrays;
 
@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import com.pedro.vendas.entities.User;
-import com.pedro.vendas.repositories.UserRepository;
+
+import com.pedro.pedidos.entities.User;
+import com.pedro.pedidos.repositories.UserRepository;
 
 @Configuration
 @Profile("test")

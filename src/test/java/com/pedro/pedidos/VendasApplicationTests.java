@@ -1,4 +1,4 @@
-package com.pedro.vendas;
+package com.pedro.pedidos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.pedro.vendas.entities;
+package com.pedro.pedidos.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
