@@ -3,7 +3,6 @@ package com.pedro.pedidos.config;
 import java.time.Instant;
 import java.util.Arrays;
 
-import org.apache.tomcat.util.openssl.openssl_h;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.pedro.pedidos.entities.Category;
 import com.pedro.pedidos.entities.Order;
 import com.pedro.pedidos.entities.OrderItem;
+import com.pedro.pedidos.entities.Payment;
 import com.pedro.pedidos.entities.Product;
 import com.pedro.pedidos.entities.User;
 import com.pedro.pedidos.entities.enums.OrderStatus;
@@ -81,5 +81,8 @@ public class TestConfig implements CommandLineRunner {
 
         orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 
+        Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+        o1.setPayment(pay1);
+        orderRepository.save(o1);
     }
 }
